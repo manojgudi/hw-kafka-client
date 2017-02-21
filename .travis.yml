@@ -136,8 +136,9 @@ before_install:
 # Using compiler above sets CC to an invalid value, so unset it
 - unset CC
 
+- export LD_LIBRARY_PATH=/usr/local/lib
+
 # We want to always allow newer versions of packages when building on GHC HEAD
-- LD_LIBRARY_PATH=/usr/local/lib
 - CABALARGS=""
 - if [ "x$GHCVER" = "xhead" ]; then CABALARGS=--allow-newer; fi
 

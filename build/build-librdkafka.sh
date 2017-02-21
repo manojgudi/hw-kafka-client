@@ -9,4 +9,4 @@ cd librdkafka
 ./configure
 cd src
 make
-sudo make install
+make install

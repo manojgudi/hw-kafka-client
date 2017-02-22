@@ -225,5 +225,11 @@ script:
   esac
   set +ex
 
+after_success:
+- docker-compose down
+
+after_failure:
+- docker-compose down
+
 after_script:
 - docker-compose down

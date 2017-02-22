@@ -188,7 +188,10 @@ install:
   set +ex
 
 before_script:
-- ./build/test-env.sh
+- export DOCKER_IP=`ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}'`
+- echo $DOCKER_IP
+- docker-compose up -d
+- sleep 5
 
 script:
 - |

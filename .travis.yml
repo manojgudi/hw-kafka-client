@@ -141,6 +141,8 @@ before_install:
 
 - export LD_LIBRARY_PATH=/usr/local/lib
 
+- docker-compose --version
+
 # We want to always allow newer versions of packages when building on GHC HEAD
 - CABALARGS=""
 - if [ "x$GHCVER" = "xhead" ]; then CABALARGS=--allow-newer; fi
@@ -222,3 +224,6 @@ script:
       ;;
   esac
   set +ex
+
+after_script:
+- docker-compose down
